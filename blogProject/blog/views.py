@@ -42,9 +42,10 @@ def signUp(request):
 
         # Create New User 
                 newUser = User.objects.create_user(username, email, pass1)
-                newUser.first
+                newUser.first_name= fname
+                newUser.last_name= lname
                 newUser.save()
-                messages.success(request, "Your message has been successfully sent")
+                messages.success(request, "New account succesfully created")
 
 
                 return redirect("home")
