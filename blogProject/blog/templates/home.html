@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block homeactive %}active{% endblock homeactive %}
+
+{% block title %}Home-Abhishek Blog{% endblock title %}
+{% block body %}
+<html>
+
+<div class = "container">
+
+{% for post in posts%}
+
+<div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">{{post.title}}</strong>
+          <h5 class="mb-0">{{post.author}}</h5>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">{{post.body | truncatechars:200}}</p>
+          <a href= "post/{{post.slug}}" class="stretched-link">Continue reading</a>
+        </div>
+    </div>
+</div>
+{% endfor%}
+
+</div>
+</html>
+{% endblock body %}
